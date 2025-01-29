@@ -36,7 +36,7 @@ module.exports = {
   Q5() {
     // Implémentation ici
     monEmail = email;
-    monEmail.toUpperCase();
+    monEmail = monEmail.toUpperCase();
     return monEmail;
   },
 
@@ -51,7 +51,7 @@ module.exports = {
   Q7() {
     // Implémentation ici
     monEmail = email;
-    monEmail.replace("email", "gmail");
+    monEmail = monEmail.replace("email", "gmail");
     return monEmail;
   }
 };

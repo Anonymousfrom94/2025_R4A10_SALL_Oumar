@@ -46,7 +46,7 @@ module.exports = {
   Q5() {
     // Implémentation ici
     objet = getObject();
-    Object.defineProperties(objet, 'email', {value: "test.test@email.com"});
+    objet.email = "test.test@email.com";
     return objet;
   },
 
@@ -54,6 +54,11 @@ module.exports = {
   // renvoyer l'objet modifié
   Q6() {
     // Implémentation ici
+    objet = getObject();
+    str1 = "Hello";
+    str2 = "World";
+    objet.dynamique = str1.concat(str2);
+    objet.valeur = true;
   },
 
   // 7) Supprimer la propriété isBestObject et renvoyer l'objet
