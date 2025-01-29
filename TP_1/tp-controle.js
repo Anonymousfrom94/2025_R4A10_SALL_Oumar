@@ -10,6 +10,28 @@ module.exports = {
   Renvoyer le tableau final.
 */
   F1() {
-
-  },
+    tab = [];
+    for(i = 1; i < 36; i++){
+      if(i % 3 == 0){
+        if(i % 5 == 0){
+          tab.push("Python");
+        }
+        else{
+          tab.push("JavaScript");
+        }
+      }
+      else if(i % 5 == 0){
+        if(i % 3 == 0){
+          tab.push("Python");
+        }
+        else{
+          tab.push("TypeScript");
+        }
+      }
+      else {
+        tab.push(i);
+      }
+    }
+    return tab;
+  }
 };
