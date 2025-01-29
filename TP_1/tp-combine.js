@@ -63,12 +63,15 @@ module.exports = {
   B7() {
     // Implémentation ici
     tab = getEmployees();
-    tab = tab.at(2)["name"].replace("o", "a");
+    tab.splice(1, 1, {name: "Thea", age: "25"});
     return tab;
   },
 
   // 8) Renvoyer un tableau qui ne contient que les personnes ayant au moins un "e" dans leur nom
   B8() {
     // Implémentation ici
+    tab = getEmployees();
+    tab = tab.filter((a) => a["name"].includes("e"));
+    return tab;
   },
 };
