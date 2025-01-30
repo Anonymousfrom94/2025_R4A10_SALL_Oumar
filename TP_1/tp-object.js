@@ -55,19 +55,22 @@ module.exports = {
   Q6() {
     // Implémentation ici
     objet = getObject();
-    str1 = "Hello";
-    str2 = "World";
-    objet.dynamique = str1.concat(str2);
-    objet.valeur = true;
+    objet.prototype.HelloWorld = true;
+    return objet;
   },
 
   // 7) Supprimer la propriété isBestObject et renvoyer l'objet
   Q7() {
     // Implémentation ici
+    objet = getObject();
+    delete objet.isBestObject;
+    return objet;
   },
 
   // 8) Vérifier que la propriété description existe dans l'objet, renvoyer un booléen
   Q8() {
     // Implémentation ici
+    objet = getObject();
+    return objet.hasOwnProperty("description");
   },
 };
