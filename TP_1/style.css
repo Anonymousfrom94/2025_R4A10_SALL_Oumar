@@ -1,0 +1,38 @@
+header{
+    border-bottom: 2px solid black;
+    display: flex;
+    width: 100%;
+}
+
+.hSectionGauche{
+    background-color: aqua;
+    width: 49%;
+    display: block;
+    float: left;
+}
+
+.hSectionDroite{
+    background-color: bisque;
+    width: 49%;
+    margin-left: 2%;
+    display: block;
+    float: right;
+}
+
+ul {
+    background-color: blue;
+    list-style-type: none;
+    width: 40%;
+    display: flex;
+    float: right;
+    flex-direction: line;
+}
+
+li{
+    margin-left: 15px;
+    background-color: aliceblue;
+}
+
+body{
+    display: block;
+}
