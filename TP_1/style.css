@@ -2,37 +2,228 @@ header{
     border-bottom: 2px solid black;
     display: flex;
     width: 100%;
+    height: 7%;
 }
 
 .hSectionGauche{
-    background-color: aqua;
     width: 49%;
-    display: block;
-    float: left;
+    padding-left: 3%;
+    padding-top: 1%;
 }
 
 .hSectionDroite{
-    background-color: bisque;
     width: 49%;
     margin-left: 2%;
-    display: block;
-    float: right;
 }
 
-ul {
-    background-color: blue;
+.navbar ul {
     list-style-type: none;
     width: 40%;
     display: flex;
     float: right;
-    flex-direction: line;
 }
 
 li{
     margin-left: 15px;
-    background-color: aliceblue;
 }
 
-body{
-    display: block;
+main{
+    margin: 0 5% 5% 5%;
 }
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.item {
+    height: fit-content;
+    border: 2px solid black;
+}
+
+.img{
+    height: 50%;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.img p {
+    margin: 20%;
+    padding-left: 10%;
+}
+
+.card-content{
+    padding-left: 2%;
+    height: 50%;
+}
+
+footer {
+    margin-top: 2%;
+    border-top: 2px solid black;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.logo {
+    background-color: grey;
+    text-align: center;
+    padding: 12px;
+}
+
+.slogan {
+    border: 1px;
+    text-align: center;
+    margin: 10px 10px 10px 10px;
+}
+
+.liens {
+    text-align: center;
+}
+
+.liens div ul{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+@media screen and (width >= 768px){
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    footer {
+        margin-top: 2%;
+        border-top: 2px solid black;
+        padding-top: 20px;
+        display: flex;
+        width: 100%;
+    }
+
+    .logo-slogan {
+        margin-left: 4%;
+        width: 49%
+    }
+
+    .liens {
+        margin-right: 4%;
+        display: flex;
+        justify-content: right;
+        width: 50%;
+    }
+
+    
+
+    .logo {
+        background-color: grey;
+        text-align: center;
+        padding: 12px;
+        width : 20%;
+    }
+
+    .slogan {
+        border: 1px;
+        width: 20%;
+        text-align: center;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .liens {
+        width: 49%;
+    }
+
+    .liens div {
+        margin-right: 15%;
+    }
+
+    .liens div ul{
+        list-style-type: none;
+        padding-left: 0px;
+    }
+}
+
+@media screen and (width >= 1024px){
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    footer {
+        margin-top: 2%;
+        border-top: 2px solid black;
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .liens {
+        width: 100%;
+    }
+
+    .logo {
+        background-color: grey;
+        text-align: center;
+        padding: 12px;
+        width : 20%;
+    }
+
+    .slogan {
+        border: 1px;
+        width: 20%;
+        text-align: center;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .liens div {
+        margin-right: 20%;
+    }
+
+    .liens div ul{
+        list-style-type: none;
+        padding-left: 0px;
+    }
+}
+
+@media screen and (width >= 1200px){
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    footer {
+        margin-top: 2%;
+        border-top: 2px solid black;
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .liens {
+        width: 100%;
+    }
+
+    .logo {
+        background-color: grey;
+        text-align: center;
+        padding: 12px;
+        width : 20%;
+    }
+
+    .slogan {
+        border: 1px;
+        width: 20%;
+        text-align: center;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .liens div {
+        margin-right: 20%;
+    }
+
+    .liens div ul{
+        list-style-type: none;
+        padding-left: 0px;
+    }
+}
+
