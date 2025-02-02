@@ -10,12 +10,29 @@
         <section class="hSectionGauche">TP1 - SALL Oumar</section>
         <section class="hSectionDroite">
             <nav class = "navbar">
+                <div class="toggle">
+                    <img class="menu" src="assets/images/Capture d'écran 2024-11-18 200640.png" height="40px" width="40px">
+                </div>
                 <ul>
                     <li>Accueil</li>
                     <li>Page 1</li>
                     <li>Page 2</li>
                     <li>Page 3</li>
                 </ul>
+                <script>
+                    let menu = document.querySelector('.menu')
+                    menu.addEventListener('click', (e) => {
+                      document.querySelector('ul').classList.toggle('active');
+                    })
+                  </script>
+                <!--<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+                <script type="text/javascript">     
+                    $(document).ready(function(){
+                        $('.toggle').click(function(){
+                            $('.navbar ul').toggleClass('active');
+                        })
+                    })
+                </script>-->
             </nav>
         </section>
     </header>

@@ -18,13 +18,24 @@ header{
 
 .navbar ul {
     list-style-type: none;
-    width: 40%;
-    display: flex;
     float: right;
 }
 
-li{
+.navbar ul li{
+    height: 48px;
+    width: 96px;
+    text-align: center;
+    border: 2px solid black;
     margin-left: 15px;
+}
+
+.toggle{
+    text-align: right;
+    margin-right: 1%;
+}
+
+.active{
+    display: none;
 }
 
 main{
@@ -93,6 +104,19 @@ footer {
         gap: 20px;
     }
 
+    .toggle{
+        display: none;
+    }
+
+    .navbar ul {
+        margin-right: 60px;
+        display: flex;
+    }
+
+    .navbar ul li{
+        border: none;
+    }
+
     footer {
         margin-top: 2%;
         border-top: 2px solid black;
@@ -150,6 +174,15 @@ footer {
         gap: 20px;
     }
 
+    .toggle{
+        display: none;
+    }
+
+    .navbar ul {
+        margin-right: 30px;
+        display: flex;
+    }
+
     footer {
         margin-top: 2%;
         border-top: 2px solid black;
@@ -190,6 +223,14 @@ footer {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
+    }
+
+    .toggle{
+        display: none;
+    }
+
+    .navbar ul {
+        display: flex;
     }
 
     footer {
