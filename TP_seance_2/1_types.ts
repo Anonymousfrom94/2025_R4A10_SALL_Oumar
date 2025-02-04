@@ -41,7 +41,7 @@ A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utilise
 type requete = {
     method: HttpMethod;
     url: string;
-    params?: Array<string>;
+    params?: Array<string>; // string[]; != [string]
     query?: string | Record<string, string>;
     body?: Record<string, unknown>;
     headers:{
@@ -82,6 +82,10 @@ Angular utilise également la notion d'intercepteur, nous la verrons en troisiè
 
 // Implémentez ici
 
+type Interceptor = {
+    intercept(request: requete);
+};
+
 /*
 5. Déclarez un type ValidationSchema.
 
@@ -104,6 +108,11 @@ Le type ValidationSchema est constitué de deux propriétés:
 
 // Implémentez ici
 
+type ValidationSchema = {
+    field: Record<string, Record<string, unknown>>;
+    required?: Array<string>;
+};
+
 /*
 6. La Route
 
@@ -119,10 +128,19 @@ Une route est composée des paramètres suivants:
 - responseInterceptors, une liste d'Interceptors, facultative
 
 Vous verrez tout ça plus en détail en cours d'Architecture et en troisième année
-/*
+*/
 
 // Implémentez ici
 
+type Route = {
+    path: string;
+    method: HttpMethod;
+    handler: string;
+    guards?: Array<Guard>;
+    validationSchema?: ValidationSchema;
+    requestInterceptors?: Array<Interceptor>;
+    responseInterceptors?: Array<Interceptor>;
+};
 
 /*
 7. La Réponse
@@ -139,3 +157,11 @@ Notre réponse aura les propriétés suivantes:
 Angular gèrera une bonne partie de la réponse pour vous, il vous donnera directement accès au body, et propose un 
 système de gestion d'erreur.
 */
+
+type Reponse = {
+    statusCode: number;
+    headers: {
+        "Content-Type": string & Record<string, string>;
+    };
+    body?: Record<string, unknown>;
+};
