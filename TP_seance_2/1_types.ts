@@ -15,6 +15,7 @@ Retenez ces verbes, ils sont utilisés aussi bien en backend qu'en frontend
 */
 
 // Implémentez ici
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 /*
 2. La Requête 
@@ -36,6 +37,19 @@ A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utilise
 */
 
 // Implémentez ici
+
+type ObjetDynamique = Record<string, string>;
+
+type requete = {
+    method: HttpMethod;
+    url: string;
+    params?: Array<string>;
+    query?: string | ObjetDynamique;
+    body?: Record<string, unknown>;
+    headers:{
+        "Content-Type": string & ObjetDynamique,
+    };
+};
 
 /* 
 3. Guard
