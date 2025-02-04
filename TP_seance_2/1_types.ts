@@ -38,16 +38,14 @@ A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utilise
 
 // Implémentez ici
 
-type ObjetDynamique = Record<string, string>;
-
 type requete = {
     method: HttpMethod;
     url: string;
     params?: Array<string>;
-    query?: string | ObjetDynamique;
+    query?: string | Record<string, string>;
     body?: Record<string, unknown>;
     headers:{
-        "Content-Type": string & ObjetDynamique,
+        "Content-Type": string & Record<string, string>;
     };
 };
 
@@ -66,6 +64,10 @@ Retenez la notion de Guard, elle vous sera utile en Angular également
 */
 
 // Implémentez ici
+
+type Guard = {
+    canActivate(request: requete): boolean | Promise<boolean>;
+}; 
 
 /*
 4. Interceptor 
