@@ -37,6 +37,11 @@ attention on renvoie un tableau de T
 
 // Implémentez ici
 
+interface FindMany<T> {
+    // the implementation
+    findMany(): Array<T> | Promise<T>;
+}
+
 /*
 2. Faire le reste du CRUD 
 
@@ -68,6 +73,24 @@ Dans la première question, vous avez fait FindMany. Sur le même modèle, faite
 */
 
 // Implémentez ici
+
+interface FindOne<T> {
+    // the implementation
+    findOne(id): Promise<T>;
+};
+
+interface Create<T> {
+    // the implementation
+    create(T): Promise<T>;
+};
+
+interface Update<T> {
+    update(id, T): Promise<T>; 
+};
+
+interface Delete<T> {
+    delete(id): Promise<number>;
+};
 
 /*
 3. Créer les types Student et Course
