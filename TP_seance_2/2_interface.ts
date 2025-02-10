@@ -39,7 +39,7 @@ attention on renvoie un tableau de T
 
 interface FindMany<T> {
     // the implementation
-    findMany(): Array<T> | Promise<T>;
+    findMany(): Promise<Array<T> | null>;
 }
 
 /*
@@ -76,20 +76,20 @@ Dans la première question, vous avez fait FindMany. Sur le même modèle, faite
 
 interface FindOne<T> {
     // the implementation
-    findOne(id): Promise<T>;
+    findOne(id: number): Promise<T | null>;
 };
 
 interface Create<T> {
     // the implementation
-    create(T): Promise<T>;
+    create(T: T): Promise<T | null>;
 };
 
 interface Update<T> {
-    update(id, T): Promise<T>; 
+    update(id: number, T: T): Promise<T | null>; 
 };
 
-interface Delete<T> {
-    delete(id): Promise<number>;
+interface Delete {
+    delete(id: number): Promise<void | null>;
 };
 
 /*
@@ -110,6 +110,20 @@ Un cours est matérialisé par:
 
 // Implémentez ici
 
+type Student = {
+    id: number;
+    firstName: string;
+    lastName: string;
+    group: string;
+};
+
+type Course = {
+    id: number;
+    name: string;
+    enseignant: string;
+    active: boolean;
+};
+
 /*
 4. Créer les interfaces StudentRepository et CourseRepository
 
@@ -120,6 +134,14 @@ Ces deux interfaces vont étendre les interfaces CRUD que vous avez créées et 
 */
 
 // Implémentez ici
+
+interface StudentRepository extends FindMany<Student>, FindOne<Student>, Create<Student>, Update<Student>, Delete {
+
+}
+
+interface CourseRepository extends FindMany<Course>, FindOne<Course>, Update<Course> {
+
+}
 
 /*
 5. Implémentation des classes
@@ -135,6 +157,43 @@ Pour les findMany, retournez simplement un tableau vide, pour les autres, vous p
 */
 
 // Implémentez ici
+
+class SQLStudentRepository implements StudentRepository {
+    async findMany(): Promise<Student[] >{
+        return [];
+    }
+
+    async findOne(id: number): Promise<Student | null> {
+        return null;
+    }
+
+    async create(s: Student): Promise<Student | null> {
+        return null;
+    }
+
+    async update(id: number, T: any): Promise<Student | null> {
+        return null;
+    }
+
+    async delete(id: number): Promise<void | null> {
+        return null;
+    }
+}
+
+class SQLCourseRepository implements CourseRepository {
+    async findMany(): Promise<Course[] | null>{
+        return [];
+    }
+
+    async findOne(id: number): Promise<Course | null> {
+        return null;
+    }
+
+    async update(id: number, T: any): Promise<Course | null> {
+        return null;
+    }
+}
+
 
 /**
  * Ca y est, vous êtes des génies (en devenir) du design logiciel en POO (le web aujourd'hui c'est beaucoup de software design, va falloir se préparer)
