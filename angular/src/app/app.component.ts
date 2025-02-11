@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  title = 'angular';
+  title = 'Le désepoir d\'un gars qui reste déterminé';
 }
