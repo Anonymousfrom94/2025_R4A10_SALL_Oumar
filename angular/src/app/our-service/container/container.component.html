@@ -1,2 +1,5 @@
-@for( )
- 
+<ul id="test">
+    @for (card of cards; track $index) {
+      <li><app-card [card]="card"></app-card></li>
+    }
+</ul>

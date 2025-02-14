@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Card } from '../container.component';
 
 @Component({
   selector: 'app-card',
@@ -8,8 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.sass'
 })
 export class CardComponent {
-  title = "titre";
-  paragraph = "Paragraphe";
-  //C'est de là que tu dois continuer. La logique des cartes est à gerer soit avec les inputs soit j'ai une autre solution qui 
-  //consiste à faire une boucle ngFor et stocké les données de mes cartes directement dans container.
+  @Input() card!: Card; 
 }
