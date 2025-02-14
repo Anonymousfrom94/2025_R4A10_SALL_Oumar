@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.sass'
 })
 export class NavBarComponent {
-
+  elements: Array<string> = ["Home", "Find a doctor", "Apps", "Testimonials", "About us"];
 }

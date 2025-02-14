@@ -9,5 +9,5 @@ import { CardComponent } from './card/card.component';
   styleUrl: './container.component.sass'
 })
 export class ContainerComponent {
-
+  
 }
