@@ -1,0 +1,18 @@
+<p>Bienvenue sur la Home Page</p>
+<button (click)="onPageButtonClick(1)">Naviguer vers la page détail/1</button>
+<button (click)="onPageButtonClick(2)">Naviguer vers la page détail/2</button>
+<button (click)="onPageButtonClick(3)">Naviguer vers la page détail/3</button>
+<button (click)="onPageButtonClick(4)">Naviguer vers la page détail/4</button>
+
+<app-teachers-list [teachers]="teachers" />
+
+@if (showDialog) {
+<div class="overlay">
+  <div class="modal">
+    <h2>Navigation</h2>
+    <p>Vous allez naviguer vers la page détail/{{selectedID}}, êtes-vous sûr ?</p>
+    <button (click)="onNavigation()">Oui</button>
+    <button (click)="onDialogClose()">Annuler</button>
+  </div>
+</div>
+}
