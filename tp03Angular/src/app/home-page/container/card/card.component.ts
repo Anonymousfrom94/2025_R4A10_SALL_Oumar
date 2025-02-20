@@ -14,5 +14,6 @@ export class CardComponent {
   test : boolean = false;
   public getCardDetail(){
     this.test = !this.test;
+    return "detail/" + this.card.id;
   }
 }

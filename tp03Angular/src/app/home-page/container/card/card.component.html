@@ -1,7 +1,7 @@
 <img src={{card.imageUrl}} alt="image placeholder" title={{card.destination}}>
 <h2>{{card.destination}}</h2>
 <p>{{card.prix}} €</p>
-<button (click)="getCardDetail()">Show</button>
+<a routerLink="getCardDetail()"><button (click)="getCardDetail()">Show</button></a>
 @if (test) {
     <p>Je suis le test</p>
 }
