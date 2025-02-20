@@ -12,8 +12,4 @@ import { RouterLink } from '@angular/router';
 export class CardComponent {
   @Input({required: true}) card!: Card;
   test : boolean = false;
-  public getCardDetail(){
-    this.test = !this.test;
-    return "detail/" + this.card.id;
-  }
 }
