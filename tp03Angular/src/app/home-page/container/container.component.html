@@ -1,0 +1,11 @@
+@if (cards && cards.length > 0) {
+    <ul>
+        @for (card of cards; track $index) {
+            <li><app-card [card]=card></app-card></li>
+        }
+    </ul>
+}
+@else {
+    <p>No travels available</p>
+}
+

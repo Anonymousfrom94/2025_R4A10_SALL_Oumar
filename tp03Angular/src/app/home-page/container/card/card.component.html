@@ -1,0 +1,10 @@
+<img src={{card.imageUrl}} alt="image placeholder" title={{card.destination}}>
+<h2>{{card.destination}}</h2>
+<p>{{card.prix}} €</p>
+<button (click)="getCardDetail()">Show</button>
+@if (test) {
+    <p>Je suis le test</p>
+}
+@else {
+    <p>Je ne suis pas le test</p>
+}
