@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CardComponent } from './card/card.component';
+import { TravelService } from '../../service/travel.service';
 
 export type Card = {
   id: number,
@@ -15,6 +16,7 @@ export type Card = {
   templateUrl: './container.component.html',
   styleUrl: './container.component.sass'
 })
+
 export class ContainerComponent {
   cards: Card[] = [
     {
@@ -42,4 +44,10 @@ export class ContainerComponent {
       prix: 400
     }
   ]
+
+  private _travel;
+
+  constructor(travel: TravelService){
+    this._travel = travel; 
+  }
 }
