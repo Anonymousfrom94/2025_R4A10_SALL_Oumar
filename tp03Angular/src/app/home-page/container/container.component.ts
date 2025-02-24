@@ -18,36 +18,6 @@ export type Card = {
 })
 
 export class ContainerComponent {
-  cards: Card[] = [
-    {
-      id: 1,
-      imageUrl: 'https://picsum.photos/300/200',
-      destination: 'Paris',
-      prix: 100
-    },
-    {
-      id: 2,
-      imageUrl: 'https://picsum.photos/300/200',
-      destination: 'Londres',
-      prix: 200
-    },
-    {
-      id: 3,
-      imageUrl: 'https://picsum.photos/300/200',
-      destination: 'New York',
-      prix: 300
-    },
-    {
-      id: 4,
-      imageUrl: 'https://picsum.photos/300/200',
-      destination: 'Tokyo',
-      prix: 400
-    }
-  ]
-
-  private _travel;
-
-  constructor(travel: TravelService){
-    this._travel = travel; 
-  }
+  constructor(private readonly travelService: TravelService) {}
+  cards: Card[] = this.travelService.getTravels();
 }
