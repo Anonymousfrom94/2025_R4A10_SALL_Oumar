@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Card } from '../container.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { TravelService } from '../../../service/travel.service';
 
 @Component({
   selector: 'app-card',
@@ -11,5 +12,15 @@ import { RouterLink } from '@angular/router';
 })
 export class CardComponent {
   @Input({required: true}) card!: Card;
-  test : boolean = false;
+
+  constructor(private readonly router: Router, private travels: TravelService){}
+
+  onNavigation(){
+    this.router.navigate(['/detail', this.card.id]);
+  }
+
+  deleteCard(){
+    this.travels.deleteById(this.card.id);
+  }
+
 }

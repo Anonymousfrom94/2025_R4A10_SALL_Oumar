@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Travel } from '../type/TravelType';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TravelService {
+
+  travels: Array<Travel> = [];
+
+  idList: Array<number> = [0];
+
   DESTINATIONS: string[] = [
     'Bali, Indonésie',
     'Kyoto, Japon',
@@ -56,15 +62,34 @@ export class TravelService {
   
   constructor() { }
 
-  public getDestinations(){
-    return this.DESTINATIONS;
+  public insertTravel(destination: string, description: string, prix: number, imageUrl: string){
+    let travel: Travel = {
+      id: this.generateId(),
+      imageUrl: imageUrl,
+      destination: destination,
+      description: description,
+      prix: prix
+    };
+    this.travels.push(travel);
   }
 
-  public getDescriptions(){
-    return this.DESCRIPTIONS;
+  findById(id: number): Travel | undefined{
+    return this.travels.find((t) => t.id === id);
   }
 
-  public getPrix(){
-    return this.PRIX;
+  public deleteById(id: number){
+    for(let travel of this.travels){
+      if(travel.id == id){
+        this.travels.splice(this.travels.indexOf(travel), 1);
+      }
+    }
+  }
+
+  generateId(){
+    let random: number = 0;
+    while(this.idList.includes(random)){
+      random = Math.trunc(Math.random() * 1500000);
+    }
+    return random;
   }
 }

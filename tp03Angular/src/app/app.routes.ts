@@ -6,14 +6,14 @@ import { DetailComponent } from './home-page/detail/detail.component';
 export const routes: Routes = [
     {
         component: HomePageComponent,
-        path: ''
+        path: '',
     },
     {
         component: GeneratePageComponent,
-        path: 'generate'
+        path: 'generate',
     },
     {
         component: DetailComponent,
-        path: 'detail/:id'
-    }
+        path: 'detail/:id',
+    },
 ];

@@ -1,4 +1,5 @@
 <img src={{card.imageUrl}} alt="image placeholder" title={{card.destination}}>
 <h2>{{card.destination}}</h2>
 <p>{{card.prix}} €</p>
-<a routerLink="detail/card.id"><button>Show</button></a>
+<button (click) = "deleteCard()" class="delete">Delete</button>
+<button (click) = "onNavigation()" class="show">Show</button>

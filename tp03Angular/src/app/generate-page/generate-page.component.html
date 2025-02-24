@@ -1,2 +1,9 @@
-<button>Generate</button>
-<p>Here will be generated randomly a travel. We will can also validateor no the generated travel</p>
+<button (click)="generateTravel()" class="generate">Generate</button><br>
+
+@if(genere){
+    <img src={{generatedImageUrl}} >
+    <h1>Destination : {{generatedDestination}}</h1>
+    <h1>Description : </h1> <p>{{generatedDescription}}</p>
+    <h1>Prix : {{generatedPrix}} €</h1>
+    <button (click)="validate()" class="validate">Validate</button>
+}
