@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TravelService } from '../../service/travel.service';
+import { Travel } from '../../type/TravelType';
 
 @Component({
   selector: 'app-detail',
@@ -11,29 +12,23 @@ import { TravelService } from '../../service/travel.service';
 })
 export class DetailComponent implements OnInit{
   id!: number;
-  travels;
+  travel: Travel | undefined = undefined;
   travelDescription: string = "";
   travelDestination: string = "";
   travelPrix: number = NaN; 
   travelImageUrl: string = "";
 
-  constructor(private readonly activatedRoute: ActivatedRoute, travels: TravelService){
-    this.travels = travels.travels;
-  }
+  constructor(
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly travels: TravelService,
+    private readonly router: Router
+  ){}
 
   ngOnInit(){
     this.id = +this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.affTravel();
-  }
-
-  affTravel(){
-    for (const travel of this.travels) {
-      if(travel.id == this.id){
-        this.travelDescription = travel.description;
-        this.travelDestination = travel.destination;
-        this.travelPrix = travel.prix;
-        this.travelImageUrl = travel.imageUrl;
-      }
+    this.travel = this.travels.findById(this.id);
+    if (!this.travel) {
+      this.router.navigate(['/404']);
     }
   }
 }

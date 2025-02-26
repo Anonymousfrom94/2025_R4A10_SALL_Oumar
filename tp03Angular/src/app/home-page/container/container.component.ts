@@ -19,7 +19,6 @@ export type Card = {
 })
 
 export class ContainerComponent {
-
   cards;
 
   constructor(private readonly travel: TravelService,
