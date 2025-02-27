@@ -17,6 +17,6 @@ export class NavBarComponent {
     {
       "name": "Generate", 
       "link": "generate"
-    }
+    },
   ];
 }

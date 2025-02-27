@@ -13,10 +13,6 @@ import { Travel } from '../../type/TravelType';
 export class DetailComponent implements OnInit{
   id!: number;
   travel: Travel | undefined = undefined;
-  travelDescription: string = "";
-  travelDestination: string = "";
-  travelPrix: number = NaN; 
-  travelImageUrl: string = "";
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,

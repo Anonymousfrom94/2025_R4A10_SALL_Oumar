@@ -19,6 +19,7 @@ export type Card = {
 })
 
 export class ContainerComponent {
+  currentPage: number = 1;
   cards;
 
   constructor(private readonly travel: TravelService,
@@ -29,5 +30,9 @@ export class ContainerComponent {
 
   onNavigation(){
     this.router.navigate(['/generate']);
+  }
+
+  changePage(page: number){
+    this.currentPage = page;
   }
 }
