@@ -1,6 +1,6 @@
 ul
     display: grid
-    grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(1, 1fr)
     gap: 1rem
     margin: 0
     padding: 0
@@ -20,10 +20,11 @@ p
     padding: 0
     text-align: center
 
-button
-    margin-left: 35%
-    width: 30%
-    height: 5rem
+.generate
+    display: block
+    margin: auto
+    width: fit-content
+    height: fit-content
     font-size: 3rem
     border-radius: 22px
     border: none
@@ -37,3 +38,13 @@ button
         transform: translateY(-0.1rem)
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2)
 
+
+
+@media screen and (width >= 600px)
+    ul
+        grid-template-columns: repeat(2, 1fr)
+
+@media screen and (width >= 1200px)
+    ul
+        grid-template-columns: repeat(3, 1fr)
+    
