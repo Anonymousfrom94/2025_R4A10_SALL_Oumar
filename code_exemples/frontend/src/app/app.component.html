@@ -1,0 +1,15 @@
+<app-navigation />
+<main class="container">
+  <!-- Cette solution si vous utilisez une variable "standard" -->
+  <!-- <app-teachers-list [teachers]="teachers" /> -->
+  <!-- Cette solution si vous utilisez un observable  -->
+  <app-teachers-list [teachers]="teachers$ | async" />
+  <app-teacher-template-form (teacherCreationEventEmitter)="onTeacherCreation($event)" />
+  <app-teacher-reactive-form (teacherCreationEventEmitter)="onTeacherCreation($event)" />
+</main>
+<footer>
+  <div class="container">
+    <app-connexion-status />
+    <p>Du code qui sera présent après chaque route</p>
+  </div>
+</footer>
