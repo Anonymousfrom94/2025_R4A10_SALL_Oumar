@@ -1,9 +1,36 @@
-<form>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <label for="title">Title</label>
-    <input type="text" id="title" name="title" required>
+    <input type="text" id="title" name="title" formControlName="title" [class.is-invalid]="isInvalidAndTouchedOrDrity(formGroup.controls.title)" required>
+    @if(isInvalidAndTouchedOrDrity(formGroup.controls.title)){
+        @if(formGroup.controls.title.hasError('required')){
+            <p>Title is required</p>
+        }
+        @if(formGroup.controls.title.hasError('minlength')){
+            <p>Title must be at least 5 characters long</p>
+        }
+    }
+
     <label for="author">Author</label>
-    <input type="text" id="author" name="author" required>
+    <input type="text" id="author" name="author" formControlName="author" [class.is-invalid]="isInvalidAndTouchedOrDrity(formGroup.controls.author)" required>
+    @if(isInvalidAndTouchedOrDrity(formGroup.controls.author)){
+        @if(formGroup.controls.author.hasError('required')){
+            <p>Author is required</p>
+        }
+        @if(formGroup.controls.author.hasError('minlength')){
+            <p>Author must be at least 2 characters long</p>
+        }
+    }
+
     <label for="description">Description</label>
-    <textarea id="description" name="description" required></textarea>
+    <textarea id="description" name="description" formControlName="description" [class.is-invalid]="isInvalidAndTouchedOrDrity(formGroup.controls.description)" required></textarea>
+    @if(isInvalidAndTouchedOrDrity(formGroup.controls.description)){
+        @if(formGroup.controls.description.hasError('required')){
+            <p>Description is required</p>
+        }
+        @if(formGroup.controls.description.hasError('minlength')){
+            <p>Description must be at least 10 characters long</p>
+        }
+    }
+
     <button type="submit">Create</button>
 </form>

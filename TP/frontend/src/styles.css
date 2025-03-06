@@ -1,9 +1,10 @@
 body {
   margin: 0;
+  font-family: mullish, sans-serif;
 }
 
 app-root {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */ 
