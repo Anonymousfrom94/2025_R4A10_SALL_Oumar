@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { BooksInMemoryService } from '../../../services/book-inmemory.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-book-form',
@@ -9,14 +12,17 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './create-book-form.component.css'
 })
 export class CreateBookFormComponent {
-  formGroup = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
-    author: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]),
-    description: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(255)]),
-  });
+  private booksInMemoryService = inject(BooksInMemoryService);
+  @Output() bookCreated = new EventEmitter<number>();
 
-  public isInvalidAndTouchedOrDrity(formControl: FormControl){
-    return formControl.invalid && (formControl.touched || formControl.dirty);
+  formGroup: FormGroup;
+
+  constructor(private formulaire: FormBuilder, private router: Router) {
+    this.formGroup = this.formulaire.group({
+      author: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(255)]]
+    });
   }
 
   onSubmit() {
@@ -25,8 +31,12 @@ export class CreateBookFormComponent {
       return;
     }
     console.log(this.formGroup.value);
+    console.log("Creer avec succès!!!");
+    const newBook = this.booksInMemoryService.createBook(this.formGroup.value);
+    console.log('Livre ajouté', newBook);
+    this.bookCreated.emit(newBook);
+    this.formGroup.reset();
+    this.router.navigate(['']);
   }
-
-  public createBook() {}
 
 }
