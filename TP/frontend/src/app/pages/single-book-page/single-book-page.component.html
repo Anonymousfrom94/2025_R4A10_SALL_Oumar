@@ -4,5 +4,6 @@
   <p class="author">Auteur : {{ book.author }}</p>
   <p class="description">{{ book.description }}</p>
   <img [src]="book.coverUrl" alt="{{ book.title }} cover" class="cover" />
+  <button (click)="deleteBook()">Delete</button>
 </div>
 }

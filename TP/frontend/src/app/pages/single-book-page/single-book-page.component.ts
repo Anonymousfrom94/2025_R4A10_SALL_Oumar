@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BooksInMemoryService } from '../../services/book-inmemory.service';
 
 @Component({
@@ -15,11 +15,19 @@ export class SingleBookPageComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
+    private readonly router: Router,
     private readonly bookService: BooksInMemoryService
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.book = this.bookService.getBookById(id);
+  }
+
+  deleteBook(): void {
+    if (this.book) {
+      this.bookService.deleteBook(this.book.id);
+      this.router.navigate(['']);
+    }
   }
 }
