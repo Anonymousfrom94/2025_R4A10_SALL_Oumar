@@ -2,6 +2,8 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BooksInMemoryService } from '../../../services/book-inmemory.service';
 import { Router } from '@angular/router';
+import { BookAPIService } from '../../../services/book-api.service';
+import { take } from 'rxjs';
 
 
 @Component({
@@ -17,26 +19,32 @@ export class CreateBookFormComponent {
 
   formGroup: FormGroup;
 
-  constructor(private formulaire: FormBuilder, private router: Router) {
-    this.formGroup = this.formulaire.group({
-      author: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+  constructor(private form: FormBuilder, private bookApiService: BookAPIService, private router: Router) {
+    this.formGroup = this.form.group({
       title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]],
+      author: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(255)]]
     });
   }
 
-  onSubmit() {
-    this.formGroup.markAllAsTouched();
-    if (this.formGroup.invalid) {
-      return;
+  //Avant implementaion de l'Api
+  /*onSubmit(): void {
+    if (this.formGroup.valid) {
+      this.bookApiService.createBook(this.formGroup.value).pipe(take(1)).subscribe(createdBook => {
+        this.bookCreated.emit(createdBook.id);
+        this.formGroup.reset();
+        this.router.navigate(['']);
+      });
     }
-    console.log(this.formGroup.value);
-    console.log("Creer avec succès!!!");
-    const newBook = this.booksInMemoryService.createBook(this.formGroup.value);
-    console.log('Livre ajouté', newBook);
-    this.bookCreated.emit(newBook);
-    this.formGroup.reset();
-    this.router.navigate(['']);
-  }
+  }*/
 
+  onSubmit(): void {
+    if (this.formGroup.valid) {
+      this.bookApiService.createBook(this.formGroup.value).pipe(take(1)).subscribe(createdBook => {
+        this.bookCreated.emit(createdBook.id);
+        this.formGroup.reset();
+        this.router.navigate(['']);
+      });
+    }
+  }
 }
